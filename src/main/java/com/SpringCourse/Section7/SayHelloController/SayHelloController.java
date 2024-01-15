@@ -18,11 +18,21 @@ public class SayHelloController {
     @RequestMapping("hello-html")
     @ResponseBody
     public String sayHelloHtml(){
-        return "Hello!";
+        StringBuffer sb = new StringBuffer();
+        sb.append("<html>");
+        sb.append("<head>");
+        sb.append("<title> My First HTML Page - Changed</title>");
+        sb.append("</head>");
+        sb.append("<body>");
+        sb.append("My first html page with body - Changed");
+        sb.append("</body>");
+        sb.append("</html>");
+
+        return sb.toString();
     }
 
-    @RequestMapping("hello-jsp")
+    @RequestMapping("sayHello")
     public String sayHelloJsp(){
-        return "HelloJSP!";
+        return "sayHello";
     }
 }
