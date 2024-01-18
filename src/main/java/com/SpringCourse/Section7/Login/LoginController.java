@@ -27,7 +27,7 @@ public class LoginController {
         if(loginAuthenticationService.authenticate(name,password)){
             modelMap.put("name",name);
 
-            return "welcome";
+            return "redirect:recipes";
         }
         modelMap.put("ErrorMsg","Invalid Credentials");
         return "login";

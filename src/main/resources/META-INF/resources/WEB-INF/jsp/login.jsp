@@ -5,6 +5,7 @@
 </head>
 
 <body>
+<div class="container"
 <h2>Log in to continue</h2>
 <form method="post">
     Name: <input type="text" name="name" required>
@@ -12,6 +13,7 @@
     <input type="submit">
 </form>
 ${ErrorMsg}
+</div>
 </body>
 
 

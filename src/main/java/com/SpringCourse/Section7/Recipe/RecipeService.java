@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 @Service
 public class RecipeService {
+    public static int count = 3;
     private static List<Recipe> listOfRecipes = new ArrayList<>();
     static{
         listOfRecipes.add(new Recipe(1,
@@ -36,5 +37,10 @@ public class RecipeService {
 
     public List<Recipe> getListOfRecipes(){
         return listOfRecipes;
+    }
+    public void addRecipe(String recipeName, String description, String addedByUser){
+        count+=1;
+        listOfRecipes.add(new Recipe(count,recipeName,description,LocalDate.now(),addedByUser));
+
     }
 }
