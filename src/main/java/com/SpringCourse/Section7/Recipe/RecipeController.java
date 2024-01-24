@@ -1,12 +1,15 @@
 package com.SpringCourse.Section7.Recipe;
 
+import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -26,15 +29,18 @@ public class RecipeController {
 
         return "recipes";
     }
-
     @RequestMapping(value = "/add-recipe",method = RequestMethod.GET)
-    public String showAddRecipePage(ModelMap modelMap){
+    public String showRecipePage(ModelMap modelMap){
+            Recipe recipe = new Recipe(0,"x","d",LocalDate.now(),"f");
+            modelMap.put("recipe",recipe);
+
         return "add-recipe";
     }
 
+
     @RequestMapping(value = "/add-recipe",method = RequestMethod.POST)
-    public String addRecipePage(@RequestParam String recipeName,@RequestParam String description,@RequestParam String addedByUser){
-        recipeService.addRecipe(recipeName,description,addedByUser);
+    public String addRecipePage(Recipe recipe){
+        recipeService.addRecipe(recipe.getRecipeName() ,recipe.getDescription(),recipe.getAddedByUser());
         return "redirect:recipes";
     }
 }
