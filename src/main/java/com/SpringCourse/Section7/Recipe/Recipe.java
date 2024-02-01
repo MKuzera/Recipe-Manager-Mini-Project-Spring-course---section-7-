@@ -1,10 +1,13 @@
 package com.SpringCourse.Section7.Recipe;
 
+import jakarta.validation.constraints.Size;
+
 import java.time.LocalDate;
 
 public class Recipe {
     private int id;
     private String recipeName;
+    @Size(max=100, message = "Description is to long")
     private String description;
     private LocalDate dateAdded;
     private String addedByUser;

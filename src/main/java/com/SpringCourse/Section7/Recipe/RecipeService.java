@@ -1,5 +1,6 @@
 package com.SpringCourse.Section7.Recipe;
 
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -38,9 +39,36 @@ public class RecipeService {
     public List<Recipe> getListOfRecipes(){
         return listOfRecipes;
     }
-    public void addRecipe(String recipeName, String description, String addedByUser){
+    public void addRecipe(String recipeName, String description, String addedByUser,LocalDate loc){
         count+=1;
-        listOfRecipes.add(new Recipe(count,recipeName,description,LocalDate.now(),addedByUser));
+        listOfRecipes.add(new Recipe(count,recipeName,description,loc,addedByUser));
 
+    }
+    public void removeRecipe(int id){
+        try {
+            listOfRecipes.remove(getRecipeById(id));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public Recipe getRecipeById(int id) throws Exception {
+        for (Recipe recipe:listOfRecipes) {
+            if(recipe.getId()==id){
+                return recipe;
+            }
+        }
+        throw new Exception("no recipe found");
+    }
+
+    public void updateRecipe(@Valid Recipe recipe) {
+        try {
+            Recipe oldRecipe = getRecipeById(recipe.getId());
+            oldRecipe.setRecipeName(recipe.getRecipeName());
+            oldRecipe.setDescription(recipe.getDescription());
+            oldRecipe.setAddedByUser(recipe.getAddedByUser());
+            oldRecipe.setDateAdded(recipe.getDateAdded());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

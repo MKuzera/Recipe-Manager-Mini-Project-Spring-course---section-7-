@@ -19,6 +19,8 @@
             <th>Description</th>
             <th>Added by</th>
             <th>Added:</th>
+            <th></th>
+
         </tr>
         </thead>
         <tbody>
@@ -29,12 +31,15 @@
                 <td>${recipe.description}</td>
                 <td>${recipe.addedByUser}</td>
                 <td>${recipe.dateAdded}</td>
+                <td> <a href="delete-recipe?id=${recipe.id}" class="btn btn-warning" >Delete</a> </td>
+                <td> <a href="update-recipe?id=${recipe.id}" class="btn btn-success" >Update</a> </td>
+
             </tr>
         </c:forEach>
         </tbody>
     </table>
 
-<a href="/add-recipe">Add recipe</a>
+<a href="/add-recipe" class="btn btn-success">Add recipe</a>
 
 </div>
 
