@@ -11,6 +11,8 @@
 
 
 <body>
+<%@include file="common/navigation.jspf" %>
+
 <div class="container">
 
     <h2>Add recipe</h2>

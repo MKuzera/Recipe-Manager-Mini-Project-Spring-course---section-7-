@@ -9,6 +9,8 @@
 
 
 <body>
+
+<%@include file="common/navigation.jspf" %>
 <link class="container">
     <h1>Your Recipes</h1>
     <table class="table">
