@@ -1,14 +1,13 @@
 package com.SpringCourse.Section7.Recipe;
 
 import jakarta.validation.Valid;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 @Service
+@Deprecated
 public class RecipeService {
     public static int count = 3;
     private static List<Recipe> listOfRecipes = new ArrayList<>();
@@ -24,19 +23,31 @@ public class RecipeService {
                         "Kurczak jakis",
                         "Kurcza w sosie jakims  z ryzem",
                         LocalDate.now(),
-                        "me")
+                        "mati")
 
                 );
         listOfRecipes.add(new Recipe(3,
                         "Kurczak XD",
                         "Kurcza w sosie XD z ryzem",
                         LocalDate.now(),
-                        "me")
+                        "mati")
 
                 );
     }
+    public List<Recipe> getListOfRecipesBasedOnUsername(String username){
+
+        List<Recipe> recipes = new ArrayList<>();
+        for (Recipe recipe: listOfRecipes) {
+            if(recipe.getAddedByUser().equals(username)){
+                recipes.add(recipe);
+            }
+        }
+        return recipes;
+    }
+
 
     public List<Recipe> getListOfRecipes(){
+
         return listOfRecipes;
     }
     public void addRecipe(String recipeName, String description, String addedByUser,LocalDate loc){
@@ -53,7 +64,7 @@ public class RecipeService {
     }
     public Recipe getRecipeById(int id) throws Exception {
         for (Recipe recipe:listOfRecipes) {
-            if(recipe.getId()==id){
+            if(id == recipe.getId()){
                 return recipe;
             }
         }

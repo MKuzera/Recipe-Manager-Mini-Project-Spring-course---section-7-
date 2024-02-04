@@ -1,16 +1,4 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
-
-<html>
-
-<head>
-    <link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" >
-    <link href="webjars/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet" >
-    <title > add recipe</title>
-</head>
-
-
-<body>
+<%@include file="common/header.jspf"%>
 <%@include file="common/navigation.jspf" %>
 
 <div class="container">
@@ -49,15 +37,9 @@
     ${ErrorMsg}
 
 </div>
-<script src="/webjars/bootstrap/5.1.3/js/bootstrap.js"></script>
-<script src="/webjars/jquery/3.6.0/jquery.js"></script>
-<script src="/webjars/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<%@include file="common/footer.jspf"%>
 <script type="text/javascript">
     $('#dateAdded').datepicker({
         format: 'dd/mm/yyyy'
     });
 </script>
-</body>
-
-
-</html>

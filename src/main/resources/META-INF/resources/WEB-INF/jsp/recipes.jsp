@@ -1,15 +1,4 @@
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
-
-<html>
-
-<head>
-    <title > Recipe page</title>
-    <link href="/webjars/bootstrap/5.1.3/css/bootstrap.css" rel="stylesheet">
-</head>
-
-
-<body>
-
+<%@include file="common/header.jspf"%>
 <%@include file="common/navigation.jspf" %>
 <link class="container">
     <h1>Your Recipes</h1>
@@ -45,9 +34,4 @@
 
 </div>
 
-<script src="/webjars/bootstrap/5.1.3/js/bootstrap.js"></script>
-<script src="/webjars/jquery/3.6.0/jquery.js"></script>
-</body>
-
-
-</html>
+<%@include file="common/footer.jspf"%>

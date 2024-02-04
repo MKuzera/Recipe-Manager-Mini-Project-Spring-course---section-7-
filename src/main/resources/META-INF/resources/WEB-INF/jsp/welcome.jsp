@@ -1,13 +1,5 @@
-<html>
+<%@include file="common/header.jspf"%>
+<%@include file="common/navigation.jspf" %>
+<h2>Hello ${name}</h2>
 
-<head>
-    <title > Welcome page</title>
-</head>
-
-<body>
-<h2>XDe ${name}</h2>
-
-</body>
-
-
-</html>
+<%@include file="common/footer.jspf"%>
