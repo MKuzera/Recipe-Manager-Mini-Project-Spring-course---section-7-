@@ -1,4 +1,6 @@
 <h1>Spring 6 & Spring Boot 3</h1>project to manage your recipes
+
+This mini project is a my own implementatino of 7th section of course Master Spring Boot 3 & Spring Framework 6 with Java (Udemy, in28Minutes)
 <h2>H2 databse with usage of JPA</h2> to manage recipes 
 <h2>Spring Security Starter </h2> for basic security and authentication
 <h2>JSPF</h2> used to create frontend
